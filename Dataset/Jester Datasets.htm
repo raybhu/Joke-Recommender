@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+<!-- Start: injected by AdGuard -->
+<script src="//local.adguard.com/adguard-ajax-api/injections/content-script.js?ts=1553181076.339381&amp;sb=1&amp;domain=eigentaste.berkeley.edu&amp;mask=103" type="text/javascript" nonce="7D9D696FDDD94773B6D6E56A8B817BEB"></script>
+<script src="//local.adguard.com/adguard-ajax-api/injections/userscripts/Adguard Assistant?ts=1551768216.838217" type="text/javascript" nonce="7D9D696FDDD94773B6D6E56A8B817BEB"></script>
+<script src="//local.adguard.com/adguard-ajax-api/injections/userscripts/Web of Trust?ts=1551768216.838217" type="text/javascript" nonce="7D9D696FDDD94773B6D6E56A8B817BEB"></script>
+<script src="//local.adguard.com/adguard-ajax-api/injections/userscripts/Adguard Popup Blocker?ts=1551768216.838217" type="text/javascript" nonce="7D9D696FDDD94773B6D6E56A8B817BEB"></script>
+<!-- End: injected by AdGuard -->
+<link href="dataset.css" rel="stylesheet" type="text/css" />
+<title>Jester Datasets</title>
+
+<script type="text/javascript">
+_uacct = "UA-1376623-1";
+urchinTracker();
+</script>
+</head>
+<body>
+<h1>Anonymous Ratings from the <a href="http://eigentaste.berkeley.edu">Jester</a> Online Joke Recommender System</h1>
+<p>
+<b>Dataset 1</b>: Over 4.1 million continuous ratings (-10.00 to +10.00) of 100 jokes from 73,421 users: collected between April 1999 - May 2003.
+<br />
+<b>Dataset 2</b>: Over 1.7 million continuous ratings (-10.00 to +10.00)
+of 150 jokes from 59,132 users: collected between November 2006 - May 2009.
+<br />
+<b>Dataset 2+</b>: An updated version of Dataset 2 with over 500,000 new
+ratings from 79,681 total users: data collected from November 2006 - Nov 2012
+</p>
+<p>
+Freely available for research use when acknowledged with the following reference:
+</p>
+<p>
+<a href="http://www.ieor.berkeley.edu/~goldberg/pubs/eigentaste.pdf">Eigentaste: A Constant Time Collaborative Filtering Algorithm</a>. Ken Goldberg, Theresa Roeder, Dhruv Gupta, and Chris Perkins. Information Retrieval, 4(2), 133-151. July 2001.
+</p>
+<p>
+As a courtesy, if you use the data, I would appreciate knowing your name, what research group you are in, and the publications that may result.
+</p>
+<h2>Dataset 1</h1>
+<h3>Over 4.1 million continuous ratings (-10.00 to +10.00) of 100 jokes from 73,421 users: collected between April 1999 - May 2003</h3>
+<p>
+Save to disk, then unzip to obtain Excel files:
+<p>
+<ul>
+	<li><a href="jester_dataset_1_1.zip">jester_dataset_1_1.zip</a>: (3.9MB) Data from 24,983 users who have rated 36 or more jokes, a matrix with dimensions 24983 X 101.</li>
+	<li><a href="jester_dataset_1_2.zip">jester_dataset_1_2.zip</a>: (3.6MB) Data from 23,500 users who have rated 36 or more jokes, a matrix with dimensions 23500 X 101.
+	<li><a href="jester_dataset_1_3.zip">jester_dataset_1_3.zip</a>: (2.1MB) Data from 24,938 users who have rated between 15 and 35 jokes, a matrix with dimensions 24,938 X 101.
+</ul>
+<p>
+<p>
+Format:
+</p>
+<ol>
+	<li>3 Data files contain anonymous ratings data from 73,421 users.</li>
+	<li>Data files are in .zip format, when unzipped, they are in Excel (.xls) format</li>
+	<li>Ratings are real values ranging from -10.00 to +10.00 (the value "99" corresponds to "null" = "not rated").</li>
+	<li>One row per user</li>
+	<li>The first column gives the number of jokes rated by that user. The next 100 columns give the ratings for jokes 01 - 100.</li>
+	<li>The sub-matrix including only columns {5, 7, 8, 13, 15, 16, 17, 18, 19, 20} is dense. Almost all users have rated those jokes (see discussion of "universal queries" in the above paper).</li>
+</ol>
+<p>
+The text of the jokes can be downloaded here: <a href="jester_dataset_1_joke_texts.zip">jester_dataset_1_joke_texts.zip</a> (92KB)
+</p>
+<p>
+Format:
+<p>
+<ol>
+	<li>100 files</li>
+	<li>Each file has title init_.html, where _ is 1 to 100</li>
+	<li>The titles correspond to the ID's of the jokes in the Excel files above</li>
+</ol>
+<h2>Dataset 2</h2>
+<h3>Over 1.7 million continuous ratings (-10.00 to +10.00) of 150 jokes
+from 59,132 users: collected between November 2006 - May 2009</h3>
+<p>
+Save to disk, then unzip: <a href="jester_dataset_2.zip">jester_dataset_2.zip</a> (7.7MB)
+</p>
+<p>
+Format:
+</p>
+<ul>
+	<li>jester_ratings.dat: Each row is formatted as [User ID] [Item ID] [Rating]</li>
+	<li>jester_items.dat: Maps item ID's to jokes</li>
+</ul>
+<p>
+	Note that the ratings are real values ranging from -10.00 to +10.00. As of May 2009, the jokes {7, 8, 13, 15, 16, 17, 18, 19} are the "gauge set" (as discussed in the Eigentaste paper) and the jokes {1, 2, 3, 4, 5, 6, 9, 10, 11, 12, 14, 20, 27, 31, 43, 51, 52, 61, 73, 80, 100, 116} have been removed (i.e. they are never displayed or rated).
+</p>
+<h2>Dataset 2+</h2>
+<h3>An updated version of Dataset 2 with over 500,000 new
+ratings from 79,681 total users: data collected from November 2006 - Nov 2012</h3>
+<p>
+Save to disk, then unzip: <a
+href="jester_dataset_3.zip">jester_dataset_2+.zip</a> (5.1MB)
+</p>
+<p>
+Format:
+</p>
+<ul>
+<li>In this dataset we stripped out users that did not respond to the
+gauge set of question. The data is formated as an excel file representing a 66336 x 151 matrix  with rows as users and columns as jokes.</li> <li>10 of the jokes don't have ratings, their ids
+are: { 1, 2, 3, 4, 6, 9, 10, 11, 12, 14 }.</li><li> Each rating is from (-10.00
+to +10.00) and 99 corresponds to a null rating (user did not rate that
+joke). </li></ul>
+
+ Note that the ratings are real values ranging from -10.00 to +10.00. As
+of May 2009, the jokes {7, 8, 13, 15, 16, 17, 18, 19} are the "gauge
+set" (as discussed in the Eigentaste paper) and the jokes {1, 2, 3, 4,
+5, 6, 9, 10, 11, 12, 14, 20, 27, 31, 43, 51, 52, 61, 73, 80, 100, 116}
+have been removed (i.e. they are never displayed or rated).
+
+<p/>
+
+<p>
+Other Collaborative Filtering Datasets:
+</p>
+<ul>
+	<li><a href="http://www.cs.umn.edu/Research/GroupLens/">The MovieLens Dataset</a>: 1,000,000 integer ratings (from 1-5) of 3500 films from 6,040 users.</li>
+	<li><a href="http://research.compaq.com/SRC/eachmovie/">The EachMovie Dataset</a>: 2,811,983 integer ratings (from 1-5) of 1628 films from 72,916 users.</li>
+	<li><a href="http://www.informatik.uni-freiburg.de/~cziegler/BX/">The BookCrossing Dataset</a>: 1,149,780 integer ratings (from 0-10) of 271,379 books from 278,858 users.</li>
+</ul>
+<p>
+<a href="http://scholar.google.com/scholar?cites=8528105010932990631">Papers using the Jester Dataset</a> (or a subset from 18,000 users)
+</p>
+<p>
+For further information please contact:
+</p>
+<p>
+<a href="http://goldberg.berkeley.edu/">Ken Goldberg</a>
+<br />
+goldberg at berkeley dot edu
+<br />
+Prof of IEOR and EECS
+<br />
+4135 Etcheverry Hall
+<br />
+University of California
+<br />
+Berkeley, CA 94720-1777
+<br />
+(510) 643-9565 (phone)
+<br />
+(510) 642-1403 (fax)
+</p>
