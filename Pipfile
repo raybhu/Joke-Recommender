@@ -11,7 +11,10 @@ pylint = "*"
 pandas = "*"
 scikit-learn = "*"
 nltk = "*"
-
+beautifulsoup4 = "*"
+lxml = "*"
+xlrd = "*"
+numpy = "*"
 
 [requires]
 python_version = "3.7"
