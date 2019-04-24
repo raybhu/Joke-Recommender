@@ -15,6 +15,7 @@ beautifulsoup4 = "*"
 lxml = "*"
 xlrd = "*"
 numpy = "*"
+openpyxl = "*"
 
 [requires]
 python_version = "3.7"
