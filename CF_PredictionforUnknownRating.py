@@ -10,18 +10,9 @@ DATASETS_PATH = {'dataset1': os.path.abspath(
     os.path.dirname(__file__)+'/Dataset/jester_dataset_1/'), 'dataset2': os.path.abspath(
     os.path.dirname(__file__)+'/Dataset/jester_dataset_2/'), 'dataset3': os.path.abspath(
     os.path.dirname(__file__)+'/Dataset/jester_dataset_3/')}
-# jokes = []
-# for f in os.listdir(JOKE_PATH):
-#     if 'init' in f:
-#         soup = BeautifulSoup(open(JOKE_PATH + '/' + f), 'lxml')
-#         jokes.append(soup.body.text.strip())
-# with open(os.path.abspath(
-#         os.path.dirname(__file__)+'/jokes.json'), 'w', encoding='utf-8') as f:
-#     f.write(json.dumps(jokes))
-#     f.close()
 
 dataset_path = DATASETS_PATH['dataset1']
-with pd.ExcelWriter('dataset.xlsx') as writer:
+with pd.ExcelWriter('CF_ResultofUnknownPrediction.xlsx') as writer:
     for f in os.listdir(dataset_path):
         if 'jester' in f:
             dataset = pd.read_excel(

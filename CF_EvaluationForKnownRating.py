@@ -29,10 +29,10 @@ def top_n_accuracy(preds, truths, n):
 
 dataset = pd.read_excel(
     os.path.abspath(
-        os.path.dirname(__file__)+'/dataset_known.xlsx/'), sheet_name=0,  usecols=range(1, 101))
+        os.path.dirname(__file__)+'/CF_ResultofKnownPrediction.xlsx/'), sheet_name=0,  usecols=range(1, 101))
 dataset_test = pd.read_excel(
     os.path.abspath(
-        os.path.dirname(__file__)+'/dataset_known.xlsx/'), sheet_name=1,  usecols=range(1, 101))
+        os.path.dirname(__file__)+'/CF_ResultofKnownPrediction.xlsx/'), sheet_name=1,  usecols=range(1, 101))
 print(dataset, dataset_test)
 MSE = mean_squared_error(dataset_test, dataset)
 RMSE = round(math.sqrt(MSE), 3)

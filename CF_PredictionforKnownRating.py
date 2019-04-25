@@ -12,7 +12,7 @@ DATASETS_PATH = {'dataset1': os.path.abspath(
     os.path.dirname(__file__)+'/Dataset/jester_dataset_3/')}
 
 dataset_path = DATASETS_PATH['dataset1']
-with pd.ExcelWriter('dataset_known.xlsx') as writer:
+with pd.ExcelWriter('CF_ResultofKnownPrediction.xlsx') as writer:
     for f in os.listdir(dataset_path):
         if f != 'jester-data-1.xlsx':
             continue
