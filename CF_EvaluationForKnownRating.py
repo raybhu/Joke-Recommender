@@ -37,9 +37,14 @@ print(dataset, dataset_test)
 MSE = mean_squared_error(dataset_test, dataset)
 RMSE = round(math.sqrt(MSE), 3)
 print('MSE:%f, RMSE: %f' % (MSE, RMSE))
-
+result = {'Top 10 Accuracy': []}
 for rIndex, row in dataset.iterrows():
     top_10_accuracy = top_n_accuracy(
         dataset_test.iloc[rIndex].to_numpy(), row.to_numpy(), 10)
-    print('The accuracy value of the row %d is %s.' %
-          (rIndex+1, top_10_accuracy))
+    result['Top 10 Accuracy'].append(top_10_accuracy)
+    # print('The accuracy value of the row %d is %s.' %
+    #       (rIndex+1, top_10_accuracy))
+result = pd.DataFrame(result, index=range(
+    1, len(result['Top 10 Accuracy'])+1))
+with pd.ExcelWriter('CF_TOP10Accuracy.xlsx') as writer:
+    result.to_excel(writer,  sheet_name='Top 10 Accuracy')

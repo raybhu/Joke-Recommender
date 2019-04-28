@@ -13,9 +13,11 @@ DATASETS_PATH = {'dataset1': os.path.abspath(
 
 dataset_path = DATASETS_PATH['dataset1']
 with pd.ExcelWriter('CF_ResultofKnownPrediction.xlsx') as writer:
+    frames = []
+    frames_test = []
     for f in os.listdir(dataset_path):
-        if f != 'jester-data-1.xlsx':
-            continue
+        # if f != 'jester-data-1.xlsx':
+        #     continue
         if 'jester' in f:
             dataset = pd.read_excel(
                 dataset_path+'/'+f, header=None, usecols='B:CW')
@@ -36,7 +38,8 @@ with pd.ExcelWriter('CF_ResultofKnownPrediction.xlsx') as writer:
             dataset_test = dataset.copy()
             model_knn = NearestNeighbors(metric='cosine', algorithm='auto')
             model_knn.fit(dataset)
-            maxIndex = 10
+            maxIndex = int(dataset.shape[0]*0.1)
+            # maxIndex = 10
             for rIndex, row in dataset.iterrows():
                 if int(rIndex) == maxIndex:
                     break
@@ -66,5 +69,10 @@ with pd.ExcelWriter('CF_ResultofKnownPrediction.xlsx') as writer:
                               (label, prediction, dataset.at[rIndex, label]))
             dataset = dataset.iloc[0:maxIndex, :]
             dataset_test = dataset_test.iloc[0:maxIndex, :]
-            dataset.to_excel(writer, sheet_name='dataset')
-            dataset_test.to_excel(writer, sheet_name='dataset_test')
+            frames.append(dataset)
+            frames_test.append(dataset_test)
+            print('finish %s' % f)
+
+    pd.concat(frames, ignore_index=True).to_excel(writer, sheet_name='dataset')
+    pd.concat(frames_test, ignore_index=True).to_excel(
+        writer, sheet_name='dataset_test')
